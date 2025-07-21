@@ -24,21 +24,25 @@
         <input type="text" id="message-input" class="form-control" placeholder="Type your message...">
         <button id="send-button" class="btn btn-primary">Send</button>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script>
         const chatBox = document.getElementById('chat-box');
         const messageInput = document.getElementById('message-input');
         const sendButton = document.getElementById('send-button');
         const socket = new WebSocket('ws://localhost:8765');
+        const key = prompt("Enter the encryption key:");
 
         socket.onmessage = function(event) {
+            const decrypted_message = CryptoJS.AES.decrypt(event.data, key).toString(CryptoJS.enc.Utf8);
             const message = document.createElement('p');
-            message.textContent = event.data;
+            message.textContent = decrypted_message;
             chatBox.appendChild(message);
         };
 
         sendButton.onclick = function() {
             const message = messageInput.value;
-            socket.send(message);
+            const encrypted_message = CryptoJS.AES.encrypt(message, key).toString();
+            socket.send(encrypted_message);
             messageInput.value = '';
         };
     </script>

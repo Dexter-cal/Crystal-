@@ -129,10 +129,10 @@ def main():
             "nikto": run_nikto,
             "beef": run_beef,
             "fatrat": run_fatrat,
-            "john": run_john,
+            "john": lambda: run_john(input("Hash file: ")),
             "sqlmap": run_sqlmap,
-            "hydra": run_hydra,
-            "aircrack": run_aircrack,
+            "hydra": lambda: run_hydra(args.target, input("Service: "), input("User: "), input("Password list: ")),
+            "aircrack": lambda: run_aircrack(input("PCAP file: ")),
             "msf": run_msfconsole,
             "androrat": run_androrat
         }

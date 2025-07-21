@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database - Crystal Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Crystal</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/shell">Shell</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logs">Logs</a></li>
+                <li class="nav-item"><a class="nav-link" href="/generate-payload">Generate Payload</a></li>
+                <li class="nav-item"><a class="nav-link" href="/listener">Listener</a></li>
+                <li class="nav-item"><a class="nav-link" href="/chat">Chat</a></li>
+                <li class="nav-item"><a class="nav-link" href="/files">File Browser</a></li>
+                <li class="nav-item"><a class="nav-link" href="/database">Database</a></li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="mt-5">Database</h1>
+        <h2>Targets</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>IP</th>
+                    <th>Domain</th>
+                    <th>Alias</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for target in targets %}
+                <tr>
+                    <td>{{ target[0] }}</td>
+                    <td>{{ target[1] }}</td>
+                    <td>{{ target[2] }}</td>
+                    <td>{{ target[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
