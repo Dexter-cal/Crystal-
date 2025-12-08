@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal - Modules</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .output-panel {
+            background-color: #1a1b26;
+            color: #a9b1d6;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold mb-8 text-center">Crystal Modules</h1>
+
+        <!-- Module Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- VulnScan Module -->
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-search-plus mr-2"></i>VulnScan</h2>
+                <form id="vulnscan-form">
+                    <input type="text" id="vulnscan-target" placeholder="e.g., scanme.nmap.org" class="w-full bg-gray-700 p-2 rounded mb-4" required>
+                    <input type="text" id="vulnscan-args" placeholder="e.g., -p 22,80" class="w-full bg-gray-700 p-2 rounded mb-4">
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 p-2 rounded">Start Scan</button>
+                </form>
+            </div>
+
+            <!-- Payloads Module -->
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-bomb mr-2"></i>Payload Generator</h2>
+                <form id="payload-form">
+                    <input type="text" id="payload-lhost" placeholder="LHOST (e.g., 10.0.0.1)" class="w-full bg-gray-700 p-2 rounded mb-4" required>
+                    <input type="number" id="payload-lport" placeholder="LPORT (e.g., 4444)" class="w-full bg-gray-700 p-2 rounded mb-4" required>
+                    <select id="payload-type" class="w-full bg-gray-700 p-2 rounded mb-4">
+                        <option value="bash_reverse_shell">Bash Reverse Shell</option>
+                        <option value="python_reverse_shell">Python Reverse Shell</option>
+                    </select>
+                    <select id="payload-encode" class="w-full bg-gray-700 p-2 rounded mb-4">
+                        <option value="">None</option>
+                        <option value="base64">Base64</option>
+                    </select>
+                    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 p-2 rounded">Generate Payload</button>
+                </form>
+            </div>
+
+            <!-- Tools Module -->
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4"><i class="fas fa-tools mr-2"></i>Run Tool</h2>
+                <form id="tool-form">
+                    <select id="tool-name" class="w-full bg-gray-700 p-2 rounded mb-4">
+                        <option value="whois">whois</option>
+                        <option value="nmap">nmap</option>
+                    </select>
+                    <input type="text" id="tool-args" placeholder="Arguments (e.g., google.com)" class="w-full bg-gray-700 p-2 rounded mb-4" required>
+                    <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 p-2 rounded">Run Tool</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Output Display -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">Output</h2>
+            <div id="output-panel" class="output-panel h-96">
+                <p class="text-gray-500">Results will be displayed here...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
