@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold">Crystal</a>
+            <div>
+                <a href="/" class="px-4 hover:text-blue-500">Dashboard</a>
+                <a href="/modules" class="px-4 hover:text-blue-500">Modules</a>
+                <a href="#" class="px-4 hover:text-blue-500">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-bold">Welcome to the Crystal Dashboard</h1>
+            <p class="text-xl text-gray-400 mt-4">AI-Driven Cyber Operations Ecosystem</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Navigation Card for Modules -->
+            <div class="bg-gray-800 p-6 rounded-lg text-center hover:bg-gray-700 transition">
+                <i class="fas fa-cubes text-4xl mb-4 text-blue-500"></i>
+                <h2 class="text-2xl font-bold mb-2">Modules</h2>
+                <p class="text-gray-400 mb-4">Access scanners, payload generators, and other tools.</p>
+                <a href="/modules" class="bg-blue-600 hover:bg-blue-700 p-2 rounded inline-block">Go to Modules</a>
+            </div>
+
+            <!-- Placeholder for Active Sessions -->
+            <div class="bg-gray-800 p-6 rounded-lg text-center">
+                <i class="fas fa-terminal text-4xl mb-4 text-green-500"></i>
+                <h2 class="text-2xl font-bold mb-2">Active Sessions</h2>
+                <p class="text-gray-400">View and interact with reverse shells.</p>
+                <p class="text-3xl mt-4">0</p>
+            </div>
+
+            <!-- Placeholder for Logs -->
+            <div class="bg-gray-800 p-6 rounded-lg text-center">
+                <i class="fas fa-file-alt text-4xl mb-4 text-yellow-500"></i>
+                <h2 class="text-2xl font-bold mb-2">System Logs</h2>
+                <p class="text-gray-400">Monitor system activity and events.</p>
+                <a href="#" class="bg-yellow-600 hover:bg-yellow-700 p-2 rounded inline-block mt-4">View Logs</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
